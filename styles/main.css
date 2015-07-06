@@ -1,0 +1,145 @@
+/* CURRENTLY IN: styles/main.css */
+/*.circleBase {
+    border-radius: 50%;
+   	background-image: url("clock-01.svg");
+	position: relative;
+	width: auto;
+    height: 600px;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}*/
+
+.circle_center {
+	border-radius: 50%;
+	background-color: black;
+	width: 400px;
+	position: absolute;
+	left: 50%;
+	bottom: 50%;
+
+}
+
+
+.image{
+	background-image: url("clock-01.svg");
+	background-position: center; 
+	position: relative;
+	width: auto;
+    height: 600px;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+
+}
+.clock_container {
+	position: absolute;
+}
+
+/*.type3 {
+    width: 500px;
+    height: 500px;
+    background: white;
+    border: 10px solid black;
+	
+}*/
+
+.minHand {
+
+	height: 10%;
+	width:2px;
+	position: absolute;
+    left: 50%;
+	bottom: 50%;
+	background-color:black;
+		/* ROTATE */
+	-ms-transform: rotate(0deg); /* IE 9 */
+    -ms-transform-origin: 50% 100%; /* IE 9 */
+    -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+    -webkit-transform-origin: 50% 100%; /* Chrome, Safari, Opera */
+    transform: rotate(0deg);
+    transform-origin: 50% 100%; 
+	
+	}
+.hourHand {
+
+	height: 6%;
+	width:3px;
+	position: absolute;
+    left: 50%;
+	bottom: 50%;
+	background-color:black;
+		/* ROTATE */
+	-ms-transform: rotate(0deg); /* IE 9 */
+    -ms-transform-origin: 50% 100%; /* IE 9 */
+    -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+    -webkit-transform-origin: 50% 100%; /* Chrome, Safari, Opera */
+    transform: rotate(0deg);
+    transform-origin: 50% 100%; 
+	
+	}
+.secondHand {
+	height: 12%;
+	width:1px;
+	position: absolute;
+    left: 50%;
+	bottom: 50%;
+	background-color:black;
+	/* ROTATE */
+	-ms-transform: rotate(0deg); /* IE 9 */
+    -ms-transform-origin: 50% 100%; /* IE 9 */
+    -webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+    //-webkit-transform-origin: 50% 100%; /* Chrome, Safari, Opera */
+    //transform: rotate(0deg);
+    transform-origin: 50% 100%; 
+  
+}
+
+
+.white {
+  color:white;
+  font-size: 12px;
+  padding-left: 13px;
+
+}
+
+.a_white {
+  color:white;
+  font-size: 12px;
+
+
+}
+
+footer {
+  background-color: #25383C;
+  height: 30px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 3px;
+  text-align: left;
+  vertical-align: middle;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  
+ 
+}
+
+
+
+@media (max-width: 700px) {
+
+	.secondHand {
+		height: 8%;
+	}	
+
+	.hourHand {
+		height: 4%
+	}
+
+	.minHand {
+		height: 6%;
+	}
+	
+} /*mediaquery	*/
