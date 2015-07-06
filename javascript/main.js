@@ -2,44 +2,59 @@ var  min = $(".minHand");
 var  hr = $(".hourHand");
 var  sec = $(".secondHand");
 
+var currentTime = new Date($.now());
+var secsInitDegrees = ((360/60)* getsecs());
+var hrInitDegrees = ((360/12)* getHours());
+var minsInitDegrees = ((360/60)* getmins());
 
-	var degrees = 0;
-	var minDegrees = 0;
-	var hrDegrees = 0;
+hr.css({
+	'-webkit-transform': 'rotate(' + hrInitDegrees + 'deg)',
+	'-ms-transform': 'rotate(' + hrInitDegrees + 'deg)' 
+});
+min.css ({
+	'-webkit-transform': 'rotate(' + minsInitDegrees + 'deg)',
+	'-ms-transform': 'rotate(' + minsInitDegrees + 'deg)'
+});
+sec.css ({
+	'-webkit-transform': 'rotate(' + secsInitDegrees + 'deg)',
+	'-ms-transform':'rotate(' + secsInitDegrees + 'deg)'
+});
 
-	var t = setInterval(function(){
-		rotate2($(sec));
-	}
-	, 1000);
+
+var minsCounter = 0;
+setInterval(function(){
+	secsInitDegrees = rotate( sec, (360/60), secsInitDegrees );
+}, 1000);
 	
-	setInterval(function(){
+setInterval(function(){
+	minsInitDegrees = rotate( min, (360/(60)), minsInitDegrees );
+},  60 * 1000);
 	
-		rotate($(min));
-	}
-	,  60 * 1000);
-	
-	
-	
-	setInterval(function(){
-		rotate3($(hr));
-	}
-	, 60 * 60 * 1000);
-	var i = 1;
-	function rotate2(obj){
-		degrees+=(360/60);
-		obj.css({'-webkit-transform' : 'rotate(' + degrees + 'deg)'});
-		// console.log(degrees);
+setInterval(function(){
+	hrInitDegrees = rotate( hr, (360/12), hrInitDegrees );
+}, 60 * 60 * 1000);
+
+function getHours () {
+	var hours = currentTime.getHours();
+
+	if (hours > 12) {
+	 	var hours = ((currentTime.getHours()) - 12);
 		}
-		
-		
-	function rotate(obj){
-		minDegrees+=(360/(60*60));
-		obj.css({'-webkit-transform' : 'rotate(' + (-1*degrees) + 'deg)'});
-		// console.log(degrees);
-		}
-		
-	function rotate3(obj){
-		degrees+=(360/(60*60*60));
-	 	obj.css({'-webkit-transform' : 'rotate(' + degrees + 'deg)'});
-	 	console.log(degrees);
-	 }
+
+	return hours
+}
+function getmins () {
+	var mins = currentTime.getMinutes();
+	return mins
+}
+function getsecs () {
+	var secs = currentTime.getSeconds();
+	return secs
+}
+
+
+//NEW FUNCTION 
+function rotate (obj,increments,startPosition){	
+	obj.css({'-webkit-transform' : 'rotate(' + (startPosition + increments) + 'deg)'});
+	return startPosition + increments;
+}
